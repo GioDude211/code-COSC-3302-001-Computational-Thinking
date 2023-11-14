@@ -53,13 +53,53 @@ def find_area_with_tolerance(a, b, initial_n, tol):
 
 a, b = 2, 4     #set start and end of range
 initial_n = 10  # initial number of sub-intervals
-tol = 0.001     # tolerance
+tol = 0.00001     # tolerance
 
 area, final_n = find_area_with_tolerance(a, b, initial_n, tol)
 print(f"Approximate area: {area}, Number of sub-intervals: {final_n}")
 
 
 """
+REPORT:
 
+NOTE: Need to confirm if I created the tolerance check function correctly, from what I can tell it auto determines the required amount
+of sub-intervals needed by comparing the values of the previous total area iterations. Otherwise I accidently created a function that 
+auto checks that without needing to adjust n values.
+
+So the area is around the right figure, doing some basic math on my end I was able to determine that a rough estimate of the area within 
+the range [2,4] for the formula was '27.74'. Of course this value is way off tolerance however the point was to showcase a rough figure to look at.
+So after comparing the program's approximations and the value I found, it seems to be correct.
+
+How I determined a rough estimate by hand:
+Step 1: Determine a partial of the area based off a right triangle
+(2, 8.85)
+(4, 18.89)
+Based off these coordinates within the formula provided we can find the area of a triangle for the top of the area(area_of_triangle = ab/2)
+which equates to 10.04
+
+Step 2: Determine the rest of the area through use of a broad rectangle below the triangle we calculated.
+width of rectangle = 2
+height of rectangle = 8.85
+(use the first coordinate)
+area of rectangle (remaining area) = 17.7
+
+Step 3: Add the partial areas all together to find total area.
+17.7 + 10.04 = 27.74
+(VERY ROUGH HAND ESTIMATE)
+
+NOTE: Program Tests show the number of sub-intervals that was required to stay within tolerance and outputs the approx. total area of the sub-intervals.
+In this case the approx. area is increasing towards the actual value for every refinement of the sub-intervals (n).
+
+TEST 1: 
+Set tolerance to .001
+Approximate area: 27.285686202239845, Number of sub-intervals: 10240
+
+TEST 2:
+Set tolerance to .0001
+Approximate area: 27.286605387387652, Number of sub-intervals: 163840
+
+TEST 3:
+Set tolerance to .00001
+Approximate area: 27.28665900675092, Number of sub-intervals: 1310720
 
 """
