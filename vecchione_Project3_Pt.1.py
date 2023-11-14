@@ -33,14 +33,14 @@ def derivative_of_function(func, x_value, h=.000001):
     Returns:
     float: The approximate derivative of the function at the given points
     """
-    return (func(x_value + h) - func(x_value)) / h
+    return (func(x_value + h) - func(x_value)) / h #derivative formula returns
 
 def function(x):
-    return ((4*x**3) + (2*x**2) - (3*x) + 5)
+    return ((4*x**3) + (2*x**2) - (3*x) + 5) #input formula
 
 # Calculate the derivative at a specific point, for example x = 1
 point = 1
-derivative_at_point = derivative_of_function(function, point)
+derivative_at_point = derivative_of_function(function, point) #calls function to find derivative, given function and point
 
 print("The approximate derivative for section A at x =", point, "is:", derivative_at_point)
 

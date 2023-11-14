@@ -22,14 +22,14 @@ def f(x):
 
 #determine if the total area is close to accurate
 def approximate_area(a, b, n):
-    width = (b-a) / n
-    total_area = 0
+    width = (b-a) / n           #calculates width
+    total_area = 0              #init. variable to hold total area
 
-    for i in range(n):
+    for i in range(n):          #iterates over given sub-intervals
         height = f(a + i * width)
         total_area += height * width
     
-    return total_area
+    return total_area           #returns calculated area
 
 #ask professor if this function is allowed, this ensures the error is below the tol
 def find_area_with_tolerance(a, b, initial_n, tol):
