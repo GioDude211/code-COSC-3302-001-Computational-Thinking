@@ -47,13 +47,13 @@ print("The approximate derivative for section A at x =", point, "is:", derivativ
 """
 SECTION A REPORT:
 
-Inital Start up:
-Inital value of h = .0001 
-Starting here since this is a common point to begin inital value.
-Will drop or raise to what is neccessary, which with every test I will drop
+Initial Start up:
+Initial value of h = .0001 
+Starting here since this is a common point to begin initial value.
+Will drop or raise to what is necessary, which with every test I will drop
 the h value by a decimal point (ex. .0001, .00001, etc.)
 
-Tolerance seleted = .000001
+Tolerance selected  = .000001
 Also did some research, this seems to be the common error amount for software. However this of course 
 has many exceptions to what is considered acceptable error. I went with a saying "six nines" which is 
 an acceptable correct range of 99.9999% which is an error acceptable range of .000001.
@@ -148,13 +148,13 @@ actual output : -6.28319
 
 3.141592653589793 is the pi value used by the imported math library for pi
 
-Inital value of h = .000001
+Initial value of h = .000001
 Stated at .000001 due to the previous testing showed good results at this point.
 
-Tolerance seleted = .000001
+Tolerance selected  = .000001
 
 TEST 1:
-Inital value of h = .000001
+Initial value of h = .000001
 The approximate derivative for section B at x = 0 is: 9.999999999995e-07
 error: .000001
 Error IS within acceptable tolerance.
@@ -164,7 +164,7 @@ error: .0000014
 Error NOT within acceptable tolerance. (just barely)
 
 TEST 2:
-Inital value of h = .0000001
+Initial value of h = .0000001
 The approximate derivative for section B at x = 0 is: 9.999999999999948e-08
 error: .0000001
 Error IS within acceptable tolerance.
@@ -174,11 +174,11 @@ error: .00000081
 Error IS within acceptable tolerance.
 
 FINAL NOTE:
-Test 2 is the point in which I stopped the program. h = .0000001 seems to be the appropriate differernce between x values.
+Test 2 is the point in which I stopped the program. h = .0000001 seems to be the appropriate difference between x values.
 Took some double checking on the error calculations to ensure I needed to run a second test.
 
 error was calculated using the formula: (approx. value - actual value) / actual value
-Sidenote: I used decimal form but if you wanted percentage mulitply the error by 100.
+Sidenote: I used decimal form but if you wanted percentage multiply the error by 100.
 
 
 
