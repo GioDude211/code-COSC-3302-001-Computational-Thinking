@@ -17,33 +17,76 @@ Explore the scenario where they ALWAYS choose to switch doors and the scenario w
 Determine what their optimal strategy should be to win as often as possible. 
 """
 import math
+import random
 
-def prob_dice_NO_reroll():
+import sys
 
-    prob_value_NR = 0
+sys.setrecursionlimit(15000)  # Be cautious with this
 
-    prob_value_NR = ((1 / 6) ** 5) * 6
+prob_value_NR = 0
+match_count_NR = 0
+total_cases_NR = 10000
 
-    return prob_value_NR
+def prob_dice_NO_reroll(n , prob_value, count, total_cases):
 
-def prob_dice_Reroll():
-    prob_value_R = 0
-    prob_value_R = (((1 / 6) ** 4) * (1/3)) * 6
+    if n == 1: 
 
-    return prob_value_R
+        print("Count: ")
+        print(count)
 
-def prob_three_doors():
-    prob_value_3doors = 0
-    
-    prob_value_3doors = ((1/3) + ((1/3) * (1/2)))
-    """
-    Im pretty sure that the prob_value_3doors needs to be .67
-    still debuggin this
-    """
+        print("total_cases: ")
+        print (total_cases)
 
-    return prob_value_3doors
+        prob_value = count / total_cases
+
+        print("prob_value: ")
+        print(prob_value)
+
+        return 1
+
+    else:
+        random_number_1 = random.randint(1,6)
+        random_number_2 = random.randint(1,6)
+        random_number_3 = random.randint(1,6)
+        random_number_4 = random.randint(1,6)
+        random_number_5 = random.randint(1,6)
+        random_number_6 = random.randint(1,6)
+
+        if random_number_1 == random_number_2 == random_number_3 == random_number_4 == random_number_5 == random_number_6:
+            print("Values Match")
+            count += 1
+        
+            print(count)
+
+        return n * prob_dice_NO_reroll(n - 1, prob_value, count, total_cases) #recursive call
 
 
-print (f"Probability of dice W/O Reroll: {prob_dice_NO_reroll()}")
-print (f"Probability of dice W Reroll: {prob_dice_Reroll()}")
-print (f"Probability of 3 Doors scenerio: {prob_three_doors()}")
+
+print ("Probability of dice W/O Reroll: ")
+prob_dice_NO_reroll(10001, prob_value_NR, match_count_NR, total_cases_NR)
+
+"""
+Test 1:
+depth: 11
+total_cases: 10
+matches: 1
+
+probability: .1
+
+note: most cases this will result in a 0 probability
+however went with the one with an actual match.
+
+Test 2: 
+Depth: 101
+total_cases: 100
+matches: 1
+
+probability: .01
+
+
+"""
+
+
+
+#print (f"Probability of dice W Reroll: {prob_dice_Reroll()}")
+#print (f"Probability of 3 Doors scenerio: {prob_three_doors()}")
